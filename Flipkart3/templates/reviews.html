@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Product Reviews</title>
+        <style>
+            .review-container {
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                padding: 10px;
+            }
+
+            .review-text {
+                margin-bottom: 10px;
+            }
+
+            .positive {
+                color: green;
+            }
+
+            .negative {
+                color: red;
+            }
+
+            .neutral {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Product Reviews</h1>
+        {% if reviews %}
+            {% for review in reviews %}
+                <div class="review-container">
+                    <div class="review-text">{{ review[0] }}</div>
+                    <div class="review-sentiment {{ review[2] }}">{{ review[1] }} - {{ review[2] }}</div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No reviews found</p>
+        {% endif %}
+    </body>
+</html>
